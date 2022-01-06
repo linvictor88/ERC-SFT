@@ -1,0 +1,73 @@
+We would use truffle testsuite for the testing.
+(Refers to https://trufflesuite.com/docs/truffle/testing/testing-your-contracts.html)
+
+## requirement
+### ganache-cli installation
+ess@dev:~/sol_codes/blaas$ npm install -g ganache-cli
+Refers to https://github.com/trufflesuite/ganache-cli-archive/blob/master/README.md
+
+### truffle compile requirements
+ess@dev:~/sol_codes/blaas$ npm install @openzeppelin/contracts
+
+### truffle testing requirements
+ess@dev:~/sol_codes/blaas$ npm install @openzeppelin/test-helpers
+
+
+## Run tests
+### First start ganache-cli as the blockchain
+ess@dev:~/sol_codes/blaas$ export NODE_OPTIONS=--openssl-legacy-provider
+ess@dev:~/sol_codes/blaas$ ganache-cli
+Ganache CLI v6.12.2 (ganache-core: 2.13.2)
+
+Available Accounts
+==================
+(0) 0x305c39276c2628074d5685be73B07C60C238F59f (100 ETH)
+(1) 0x536bE8E5ac86D9AF176b527813Dc216561e5F285 (100 ETH)
+(2) 0xF525445B81514E3c46FA79b6Ed80e0858e1E9ea3 (100 ETH)
+(3) 0xB89B3d2ad5601a5fCf764215d4EA5a06F793CDb8 (100 ETH)
+(4) 0xF877E9376827db1Cd6351362b598d9e288846948 (100 ETH)
+(5) 0x3A3f3e560BEf2E5aB9a964BdDDa264044634d2A6 (100 ETH)
+(6) 0x73DE3B2676a9904AD5d06b53cb9926246DC18bc9 (100 ETH)
+(7) 0x423639A63c4382cE0c98d37BA1B5269b06c05FcE (100 ETH)
+(8) 0x1a146c83917D6174C5b67e3060A9Ff0d8d7c20f5 (100 ETH)
+(9) 0xaC3CE443FFd1eb65a85C805D3B4F74712Ab83e10 (100 ETH)
+
+Private Keys
+==================
+(0) 0x403446e86b1cb965cd39be5e39fe20f1b42b472a3b0c5dd61e3b70c045d7f146
+(1) 0x2cf91b130021cde92d2da50d004366bf716e6d4aa48a40ba80d1bbe47716bba4
+(2) 0xe2efa80b50a956ad4a00c8e1a024aa52eb0b697862260b27c03ce56e18e776bb
+(3) 0x92481589da140e6a55f37e1ed499f32ff63736fcdee90b0614d130f970f5f240
+(4) 0x6c417ca50b6bf9767fe7b6bed9172e488f3712abc134252c47d060eb0e9e255c
+(5) 0x36d4d0f5344f33938b8c5f87ed8f15084276f974a80a77f4c4523a586752db12
+(6) 0xf6873ab071a52b6dbffd6ed0253784d8359c3756499c60545a9188852ce051a7
+(7) 0x87b24df5b87c904030e4fb39a205ab8a534baad397a80fd21e38b4e5384965d8
+(8) 0x74650a0791b402af1cb2e18124bb383d7ff20294801e5d1d0915a1fefea9abf8
+(9) 0xd283a158c20715d18a1113643e36bb5e44a4d9ad3a9ddaf27e24f05176b99e28
+
+HD Wallet
+==================
+Mnemonic:      warfare range shift leopard long drift armed effort process month minute raccoon
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Gas Price
+==================
+20000000000
+
+Gas Limit
+==================
+6721975
+
+Call Gas Limit
+==================
+9007199254740991
+
+Listening on 127.0.0.1:8545
+
+### truffle console/develop for interactive testing
+$truffle console
+$truffle develop
+
+### truffle IT
+ess@dev:~/sol_codes/blaas$ truffle test ./test/SFT/SFT.test.js --stacktraceess@dev:~/sol_codes/blaas$ truffle test ./test/SFT/SFT.test.js --debug
+ess@dev:~/sol_codes/blaas$ truffle test ./test/SFT/ERCSFT.test.js --debug -g semiMint
